@@ -1,0 +1,6 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#126E63" android:pathData="M0,0h108v108h-108z"/>
+    <path android:fillColor="#FFFFFF" android:pathData="M29,39Q54,20 79,39L75,43Q54,27 33,43zM39,47Q54,35 69,47L65,51Q54,43 43,51z"/>
+    <!-- Letter shapes are vectors so TSD remains crisp at any launcher size. -->
+    <path android:fillColor="#FFFFFF" android:pathData="M26,56h17v5h-6v19h-5v-19h-6zM48,56h16v5h-11v4h11v15h-16v-5h11v-5h-11zM69,56h9l6,6v12l-6,6h-9zM74,61v14h2l3,-3v-8l-3,-3z" android:fillType="evenOdd"/>
+</vector>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="cn.scanwifi.app">
+        <permission name="android.permission.NETWORK_SETTINGS" />
+    </privapp-permissions>
+</permissions>
