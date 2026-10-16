@@ -15,8 +15,11 @@ if (!(Test-Path -LiteralPath $gradle)) { $gradle = Join-Path $stage 'gradlew.bat
 if ($LASTEXITCODE -ne 0) { throw "构建或测试失败，检查目录：$stage" }
 $out = Join-Path $PSScriptRoot 'outputs'
 New-Item -ItemType Directory -Path $out -Force | Out-Null
-Copy-Item -LiteralPath "$stage\app\build\outputs\apk\debug\app-debug.apk" -Destination "$out\TSD-ScanWifi-1.0.0.apk" -Force
+$apkVersion=(Get-Content -LiteralPath "$stage\app\build\outputs\apk\debug\output-metadata.json" -Raw | ConvertFrom-Json).elements[0].versionName
+if ($apkVersion -notmatch '^\d+\.\d+\.\d+$') { throw '无法确定 APK 版本' }
+$apkPath=Join-Path $out ("TSD-ScanWifi-" + $apkVersion + '.apk')
+Copy-Item -LiteralPath "$stage\app\build\outputs\apk\debug\app-debug.apk" -Destination $apkPath -Force
 New-Item -ItemType Directory -Path "$out\tests" -Force | Out-Null
 Copy-Item -Path "$stage\app\build\reports\tests\testDebugUnitTest\*" -Destination "$out\tests" -Recurse -Force
-Get-FileHash -LiteralPath "$out\TSD-ScanWifi-1.0.0.apk" -Algorithm SHA256
+Get-FileHash -LiteralPath $apkPath -Algorithm SHA256
 Write-Host "构建与测试目录：$stage"
