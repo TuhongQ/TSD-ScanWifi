@@ -1,6 +1,6 @@
 # TSD 扫码连接WIFI
 
-[下载 APK / Releases](https://github.com/TuhongQ-Work/TSD-ScanWifi/releases) · [源码仓库](https://github.com/TuhongQ-Work/TSD-ScanWifi)
+[下载 APK / Releases](https://github.com/TuhongQ/TSD-ScanWifi/releases) · [源码仓库](https://github.com/TuhongQ/TSD-ScanWifi)
 
 启动图标包含 TSD 三个字母，扫码界面显示“测试工程部开发”和“扫码连接WIFI”。
 
