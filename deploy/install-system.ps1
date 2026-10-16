@@ -1,6 +1,6 @@
 param([Parameter(Mandatory=$true)][string]$Serial)
 $ErrorActionPreference = 'Stop'
-$apk = Join-Path $PSScriptRoot '..\outputs\TSD-ScanWifi-1.1.0.apk'
+$apk = Join-Path $PSScriptRoot '..\outputs\TSD-ScanWifi-1.2.0.apk'
 if (!(Test-Path -LiteralPath $apk)) { throw '请先执行 build.ps1 生成 APK。' }
 function Run-Adb {
     & adb -s $Serial @args

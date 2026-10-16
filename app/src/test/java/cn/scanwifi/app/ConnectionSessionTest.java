@@ -2,6 +2,7 @@ package cn.scanwifi.app;
 import org.junit.Test;
 import static org.junit.Assert.*;
 public class ConnectionSessionTest {
+    @Test public void suggestionApprovalTimeoutAllowsRetry() {ConnectionSession s=new ConnectionSession();s.approval("Home");s.waitForApproval(1000);assertEquals(ConnectionSession.Action.NONE,s.tick(60999,"",false));assertEquals(ConnectionSession.Action.FAILURE,s.tick(61000,"",false));assertEquals(ConnectionSession.Action.SCAN,s.tick(66000,"",false));}
     private ConnectionSession connecting() {ConnectionSession s=new ConnectionSession();s.approval("测试网络");s.connect(1000);return s;}
     @Test public void savedNetworkDoesNotMeanConnected() {ConnectionSession s=connecting();assertEquals(ConnectionSession.Action.NONE,s.tick(2000,"",false));assertEquals(ConnectionSession.Phase.CONNECTING,s.phase);}
     @Test public void wrongNetworkNeverSucceeds() {ConnectionSession s=connecting();assertEquals(ConnectionSession.Action.NONE,s.tick(2000,"Other",true));}
